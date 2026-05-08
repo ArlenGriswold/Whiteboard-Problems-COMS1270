@@ -1,22 +1,14 @@
 # Arlen Griswold
+# May 7th, 2026
 # Lab 11 - NeetCode: Contains Duplicate
+# https://neetcode.io/problems/duplicate-integer/solution
 
-def hasDuplicate(nums):
-    seen = set()
-    for num in nums:
-        if num in seen:
-            return True
-        seen.add(num)
-    return False
 
-def main():
-    test1 = [1, 2, 3, 3]
-    test2 = [1, 2, 3, 4]
-    test3 = [1]
-    print(hasDuplicate(test1))  
-    print(hasDuplicate(test2))   
-    print(hasDuplicate(test3))   
-
-if __name__ == "__main__":
-    main()
-
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] == nums[j]:
+                    return True
+        return False
+    
